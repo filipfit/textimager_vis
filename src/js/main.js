@@ -13,5 +13,4 @@ let el = document.getElementsByClassName('anchor');
 console.log(el[0].innerHTML);
 console.log(el[0].innerText);
 
-// TEST COMMENT
-// ANOTHER TEST
+// NOCOM
