@@ -6,9 +6,11 @@ import { extractNamedEntities, getText } from './preprocess';
  *
  * @author Filip Fitzermann
  *
- * Helper class containing methods used to generate marked text HTML
+ * Class containing methods used to generate marked text HTML
  */
 export class TextMarker {
+  static markClassName = 'MARK';
+
   /**
    * Inserts a string into another string at given index.
    * @param {string} str String to insert
@@ -37,26 +39,28 @@ export class TextMarker {
     let markedText = text;
 
     for (let marking of markings) {
-      const tag1 = `<span class="${marking.type}">`;
+      const tag1 = `<span class="${TextMarker.markClassName} ${marking.type}">`;
       const tag2 = '</span>';
 
-      markedText = insertString(markedText, indexOffset + marking.begin, tag1);
+      markedText = TextMarker.insertString(markedText, indexOffset + marking.begin, tag1);
       indexOffset += tag1.length;
-      markedText = insertString(markedText, indexOffset + marking.end, tag2);
+      markedText = TextMarker.insertString(markedText, indexOffset + marking.end, tag2);
       indexOffset += tag2.length;
     }
     return markedText;
   }
 
   /**
-   * 
-   * @param {*} data 
-   * @param {*} element 
+   * Generate marked text and insert it into an html element
+   * @param {Text: string, NamedEntities: {begin: number, end: number, type: string}[]} data Object containing Text
+   *    to mark and marking information.
+   * @param {HTMLElement | D3.Selection} element HTML element to insert the generated marked text into.
+   * @static
    */
   static markNamedEntities(data, element) {
-    const text = getText(data);
-    const markings = extractNamedEntities(data);
-    element.html(markedHTML(text, markings));
-    element.selectAll('.NER').style('background-color', 'pink');
+    const text = data.Text;
+    const markings = data.NamedEntities;
+    element.html(TextMarker.markedHTML(text, markings));
+    element.selectAll(`.${TextMarker.markClassName}`).style('background-color', 'pink');
   }
 }
