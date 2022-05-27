@@ -5,9 +5,11 @@
   "scripts": {
     "dev": "vite --config vite.config.js",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "doc": "./node_modules/jsdoc/jsdoc.js -c jsdoc.json"
   },
   "devDependencies": {
+    "jsdoc": "^3.6.10",
     "vite": "^2.9.9"
   },
   "dependencies": {

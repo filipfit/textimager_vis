@@ -1,13 +1,21 @@
-/* TextMarker
+/** TextMarker
  *
  * @date 26.05.2022
  *
  * @author Filip Fitzermann
  *
- * Class containing methods used to generate marked text HTML
+ * Class containing methods used to generate marked text HTML.
  */
 export class TextMarker {
   static markClassName = 'MARK';
+
+  /**
+   * @typedef marking
+   * @type {object}
+   * @property {number} begin - Starting index of marking.
+   * @property {number} end - Ending index of marking.
+   * @property {string} type - Type of marking: CSS-Class associated with that type of marking.
+   */
 
   /**
    * Inserts a string into another string at given index.
@@ -24,11 +32,8 @@ export class TextMarker {
   /**
    * Surrounds specified parts of a string with HTML span tags. Each span tag can have a specified
    *    class attrbiute. Useful for preparing text to be marked in different colors.
-   * @param {string} text Text to be marked
-   * @param {{begin: number, end: number, type: string}[]} markings List containing Objects with marking information.
-   *    begin: Starting index of to be marked word
-   *    end: Ending index of to be marked word
-   *    type: Extra information to distinguish types of marked. Mostly used to be able to mark types of words differently.
+   * @param {string} text Text to be marked.
+   * @param {marking[]} markings List containing Objects with marking information.
    * @static
    * @returns Original text but with added span tags which each have specified class attributes.
    */
@@ -50,9 +55,10 @@ export class TextMarker {
 
   /**
    * Generate marked text and insert it into an html element
-   * @param {Text: string, NamedEntities: {begin: number, end: number, type: string}[]} data Object containing Text
-   *    to mark and marking information.
-   * @param {HTMLElement | D3.Selection} element HTML element to insert the generated marked text into.
+   * @param {object} data - Object containing Text to mark and marking information.
+   * @param {string} data.Text - Text to mark.
+   * @param {marking[]} data.NamedEntities - List of markings.
+   * @param {HTMLElement | D3.Selection} element - HTML element to insert the generated marked text into.
    * @static
    */
   static markNamedEntities(data, element) {
