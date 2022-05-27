@@ -1,3 +1,9 @@
+section {
+  display: flex;
+  justify-content: center;
+}
+
 .anchor {
+
   outline: 1px solid black;
 }

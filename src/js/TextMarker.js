@@ -1,5 +1,3 @@
-import { extractNamedEntities, getText } from './preprocess';
-
 /* TextMarker
  *
  * @date 26.05.2022
