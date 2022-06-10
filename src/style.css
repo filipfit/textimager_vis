@@ -1,9 +1,66 @@
-section {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+*,
+*::before,
+*::after {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* FORM ################################### */
+#vis-form {
   display: flex;
+  flex-direction: column;
+  /* align-items: center; */
   justify-content: center;
 }
 
-.anchor {
+#vis-form section {
+  margin: 25px;
+}
 
-  outline: 1px solid black;
+.form-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3em;
+}
+
+.form-checkbox-container input[type='checkbox'],
+.file-list-element input[type='radio'] {
+  display: none;
+}
+
+.form-checkbox-container input:checked + label,
+.file-list-element input:checked + label {
+  background-color: #4bbef3c2;
+}
+
+label {
+  display: inline-block;
+  user-select: none;
+  padding: 3px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.file-list {
+  display: inline-block;
+}
+
+legend {
+  background-color: #000;
+  color: #fff;
+  padding: 3px 6px;
+}
+
+#btn--submit {
+  background-color: #b2ebf2;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 20px;
+  border: none;
+}
+
+#btn--submit:active {
+  transform: scale(0.98);
 }

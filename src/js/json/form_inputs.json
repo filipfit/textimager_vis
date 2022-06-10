@@ -1,0 +1,32 @@
+{
+  "histogram": [
+    {
+      "name": "NE-histogram",
+      "label": "Named Entity",
+      "cssClass": "histogramFormCheckbox"
+    },
+    {
+      "name": "POS-histogram",
+      "label": "Part Of Speech",
+      "cssClass": "histogramFormCheckbox"
+    },
+    {
+      "name": "LEM-histogram",
+      "label": "Lemma",
+      "cssClass": "histogramFormCheckbox"
+    }
+  ],
+
+  "textmark": [
+    {
+      "name": "NE-textmark",
+      "label": "Named Entity",
+      "cssClass": "textmarkFormCheckbox"
+    },
+    {
+      "name": "POS-textmark",
+      "label": "Part Of Speech",
+      "cssClass": "textmarkFormCheckbox"
+    }
+  ]
+}

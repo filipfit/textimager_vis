@@ -61,9 +61,9 @@ export class TextMarker {
    * @param {HTMLElement | D3.Selection} element - HTML element to insert the generated marked text into.
    * @static
    */
-  static markNamedEntities(data, element) {
+  static textmark(data, element) {
     const text = data.Text;
-    const markings = data.NamedEntities;
+    const markings = data.Textmark;
     element.html(TextMarker.markedHTML(text, markings));
     element.selectAll(`.${TextMarker.markClassName}`).style('background-color', 'pink');
   }

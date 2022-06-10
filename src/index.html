@@ -7,10 +7,25 @@
     <!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
     <title>TextImager Vis</title>
   </head>
+
   <body>
-    <section>
-      <div class="anchor">Hello</div>
-    </section>
+    <div class="main-container">
+      <div class="form-container">
+        <form action="http://localhost:4567/post_test" method="post" id="vis-form">
+          <!-- FILE SELECTION -->
+          <section class="" id="file-selection-anchor"></section>
+
+          <!-- HISTOGRAM SELECTION -->
+          <section id="histogram-selection-anchor"></section>
+
+          <input id="btn--submit" type="submit" />
+        </form>
+      </div>
+    </div>
+
+    <div id="vis-anchor"></div>
+
+    <button id="debug-btn">Debug Button</button>
   </body>
   <script type="module" src="./js/main.js"></script>
 </html>

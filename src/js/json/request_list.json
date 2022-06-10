@@ -1,0 +1,22 @@
+{
+  "NE-histogram": {
+    "route": "/histogram",
+    "type": "ne"
+  },
+  "POS-histogram": {
+    "route": "/histogram",
+    "type": "pos"
+  },
+  "LEM-histogram": {
+    "route": "/histogram",
+    "type": "lem"
+  },
+  "POS-textmark": {
+    "route": "/textmark",
+    "type": "pos"
+  },
+  "NE-textmark": {
+    "route": "/textmark",
+    "type": "ne"
+  }
+}
