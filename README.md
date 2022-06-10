@@ -5,4 +5,4 @@
 - yarn: https://yarnpkg.com/
 
 ## Dev
-Run `yarn dev` to run in dev mode.
+Run `yarn dev` for dev server.
