@@ -14,7 +14,61 @@ const SUBMIT_BUTTON = d3.select('#btn--submit');
 const VIS_ANCHOR = d3.select('#vis-anchor');
 let DEBUG_BUTTON = d3.select('#debug-btn');
 
-fileList().then((d) => {
+let data;
+
+function histogram(data) {
+  const height = 500;
+  const values = Object.values(data);
+  const barWidth = 20;
+  const margin = 1;
+
+  let scale = d3
+    .scaleLinear()
+    .domain([d3.min(values), d3.max(values)])
+    .range([0, 500]);
+
+  console.log(scale(values[0]));
+  console.log(values, d3.min(values));
+
+  let svg = d3
+    .create('svg')
+    .attr('height', height)
+    .attr('width', barWidth * values.length);
+
+  let group = svg
+    .selectAll('g')
+    .data(values)
+    .enter()
+    .append('g')
+    .attr('transform', function (d, i) {
+      return `translate(${i * barWidth}, 0)`;
+    });
+
+  group
+    .append('rect')
+    .attr('height', function (d) {
+      return scale(d);
+    })
+    .attr('width', barWidth - margin);
+
+  // group.append('text').attr('y', function (d) {
+  //   return scale(d);
+  // });
+
+  return svg.node();
+}
+
+axios
+  .get(
+    'http://localhost:4567/histogram?type=pos&file=text/xmi/18001.xmi.gz.xmi.gz&filter=100'
+  )
+  .then((res) => {
+    data = res.data.result;
+
+    VIS_ANCHOR.append(() => histogram(data));
+  });
+
+/* fileList().then((d) => {
   FILE_SELECTION_ANCHOR.append(() => d);
 });
 
@@ -55,3 +109,4 @@ function collectFormData() {
   const checkboxes = getCheckedBoxes();
   return { vis: checkboxes, file: file };
 }
+ */

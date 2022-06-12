@@ -6,6 +6,11 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+/* SVG ###################################*/
+svg rect {
+  fill: cornflowerblue;
+}
+
 /* FORM ################################### */
 #vis-form {
   display: flex;
