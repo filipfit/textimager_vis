@@ -11,6 +11,14 @@ svg rect {
   fill: cornflowerblue;
 }
 
+svg text {
+  color: black;
+}
+
+svg {
+  border: 1px solid black;
+}
+
 /* FORM ################################### */
 #vis-form {
   display: flex;
